@@ -27,29 +27,25 @@ let salaries = [{
 
 const getEmployee = (num) => {
     return new Promise((resolve, reject) => {
-
         let found = ''
         employees.some( el => el.id === num ? found = el : found = '' )
         if (found) {
-         resolve(found);
+            resolve(found);
         } else {
-          reject(`Employee not found`);
+            reject(`Employee not found`);
         }
-
     })     
 }
 
 const getSalary = (employee) => {
     return new Promise ((resolve, reject) => {
-
         let found = ''
         salaries.some( el => el.id === employee.id ? found = el.salary : found = '' )
         if (found) {
-         resolve(found);
+            resolve(found);
         } else {
-          reject(`Salary not found`);
+            reject(`Salary not found`);
         }
-
     })
 }
 
@@ -59,8 +55,8 @@ async function showPayroll(x) {
         const response1 = await getEmployee(x);
         const response2 = await getSalary(response1);
         console.log(`${response1.name}: ${response2}`);
-    }  catch (err) {
-       console.log(err);
+    }   catch (err) {
+        console.log(err);
     }   
 }
 
